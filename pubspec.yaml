@@ -35,6 +35,7 @@ dependencies:
   get: ^4.6.6
   get_x_navigation_generator: ^0.1.0
   getx_screen: ^1.0.0
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
