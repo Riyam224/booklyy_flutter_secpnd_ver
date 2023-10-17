@@ -24,15 +24,36 @@ class BestSellerListViewItem extends StatelessWidget {
           ),
           const SizedBox(width: 30),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  child: const Text('wedding crasher',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Styles.textStyle20)),
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: const Text('wedding crasher',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Styles.textStyle20),
+              ),
+              const SizedBox(
+                height: 3,
+              ),
+              const Text(
+                '3.4k rotten t',
+                style: Styles.textStyle14,
+              ),
+              const SizedBox(
+                height: 3,
+              ),
+              Row(
+                children: [
+                  Text(
+                    '18.99',
+                    style: Styles.textStyle20
+                        .copyWith(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              )
             ],
-          )
+          ),
         ],
       ),
     );
