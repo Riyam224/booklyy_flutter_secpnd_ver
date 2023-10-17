@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  font_awesome_flutter: ^10.6.0
   get: ^4.6.6
   get_x_navigation_generator: ^0.1.0
   getx_screen: ^1.0.0
