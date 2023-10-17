@@ -10,7 +10,7 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 
-  static const titleStyle18 = TextStyle(
+  static const textStyle18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );

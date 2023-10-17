@@ -1,5 +1,5 @@
-
 import 'package:booklyy/core/utils/assets.dart';
+import 'package:booklyy/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
@@ -22,6 +22,17 @@ class BestSellerListViewItem extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 30),
+          Column(
+            children: [
+              SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: const Text('wedding crasher',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Styles.textStyle20)),
+            ],
+          )
         ],
       ),
     );
