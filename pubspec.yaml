@@ -35,6 +35,7 @@ dependencies:
   get: ^4.6.6
   get_x_navigation_generator: ^0.1.0
   getx_screen: ^1.0.0
+  go_router: ^11.1.4
   google_fonts: ^6.1.0
 
 dev_dependencies:
@@ -67,7 +68,5 @@ flutter:
     - family: Dosis
       fonts:
         - asset: assets/fonts/Dosis-Regular.ttf
-       
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
