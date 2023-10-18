@@ -1,6 +1,8 @@
 import 'package:booklyy/core/utils/assets.dart';
 import 'package:booklyy/core/utils/styles.dart';
+import 'package:booklyy/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
@@ -50,8 +52,10 @@ class BestSellerListViewItem extends StatelessWidget {
                     style: Styles.textStyle20
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
+                  const SizedBox(width: 50),
+                  const BookRating(),
                 ],
-              )
+              ),
             ],
           ),
         ],
