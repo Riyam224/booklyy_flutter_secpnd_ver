@@ -21,6 +21,7 @@ class BooksAction extends StatelessWidget {
         ),
         Expanded(
           child: CustomButton(
+            fontSize: 16,
             text: 'free book',
             bgcolor: Color.fromARGB(255, 240, 177, 177),
             textColor: Colors.white,
