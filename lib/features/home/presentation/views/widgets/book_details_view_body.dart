@@ -1,5 +1,4 @@
 import 'package:booklyy/core/utils/styles.dart';
-import 'package:booklyy/core/widgets/vustom_button.dart';
 import 'package:booklyy/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:booklyy/features/home/presentation/views/widgets/books_action.dart';
 import 'package:booklyy/features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
@@ -46,6 +45,25 @@ class BookDetailsViewBody extends StatelessWidget {
             height: 30,
           ),
           const BooksAction(),
+          const SizedBox(
+            height: 50,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'u also may like ...',
+              style: Styles.textStyle16.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          const SimilarBooksListView(),
+          const SizedBox(
+            height: 40,
+          ),
         ],
       ),
     );
