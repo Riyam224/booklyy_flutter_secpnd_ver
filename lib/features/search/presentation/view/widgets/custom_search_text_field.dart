@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({super.key});
 
@@ -19,7 +20,8 @@ class CustomSearchTextField extends StatelessWidget {
       ),
     );
   }
-// todo method to use border 
+
+// todo method to use border
   OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderSide: const BorderSide(
