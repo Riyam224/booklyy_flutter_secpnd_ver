@@ -4,6 +4,6 @@ import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
   // todo methods
-  Future<Either<Failure, List<BooksModel>>> fetchNewsBooks();
+  Future<Either<Failure, List<BooksModel>>> fetchNewestBooks();
   Future<Either<Failure, List<BooksModel>>> fetchFeaturedBooks();
 }
