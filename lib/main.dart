@@ -12,6 +12,7 @@ void main() {
   setupServiceLocator();
   runApp(const Booklyy());
 }
+
 class Booklyy extends StatelessWidget {
   const Booklyy({super.key});
   @override
@@ -19,7 +20,9 @@ class Booklyy extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>()),
+            create: (context) => FeaturedBooksCubit(
+              getIt.get<HomeRepoImpl>()..fetchFeaturedBooks(),
+            ),
           ),
           BlocProvider(
             create: (context) => NewestBooksCubit(getIt.get<HomeRepoImpl>()),
