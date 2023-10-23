@@ -6,26 +6,27 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key , required bookModel});
+  const BestSellerListViewItem({super.key, required bookModel});
   final BooksModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 127,
         child: Row(
           children: [
-          CustumBookImage(imageUrl : bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
+            CustumBookImage(
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
             const SizedBox(width: 30),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.4,
-                  child: const Text(bookModel.volumeInfo.title!,
+                  child: Text(bookModel.volumeInfo.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20),
@@ -33,7 +34,7 @@ class BestSellerListViewItem extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const Text(
+                Text(
                   bookModel.volumeInfo.authors![0],
                   style: Styles.textStyle14,
                 ),
@@ -47,10 +48,12 @@ class BestSellerListViewItem extends StatelessWidget {
                       style: Styles.textStyle20
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
-                   const spacer(),
-                    const BookRating(
-rating : bookModel.volumeInfo.averageRating ?? 0,
-count: bookModel.volumeInfo.ratingsCount ?? 0,
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    BookRating(
+                      rating: bookModel.volumeInfo.averageRating ?? 0,
+                      count: bookModel.volumeInfo.ratingsCount ?? 0,
                     ),
                   ],
                 ),
