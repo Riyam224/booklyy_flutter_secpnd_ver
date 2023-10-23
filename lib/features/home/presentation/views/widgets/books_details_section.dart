@@ -1,12 +1,13 @@
 import 'package:booklyy/core/utils/styles.dart';
+import 'package:booklyy/features/home/data/models/books_model/books_model.dart';
 import 'package:booklyy/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:booklyy/features/home/presentation/views/widgets/books_action.dart';
 import 'package:booklyy/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
-
+  const BookDetailsSection({super.key, required this.book});
+  final BooksModel book;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -14,31 +15,30 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.2),
-          child: const CustomBookImage(
-            imageUrl:
-                'https://images.pexels.com/photos/18540855/pexels-photo-18540855/free-photo-of-woman-on-a-beach-standing-and-holding-a-chair.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          child: CustomBookImage(
+            imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
           ),
         ),
         Text(
-          'Party crasher',
+          book.volumeInfo.title!,
           style: Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 20,
         ),
-        const Opacity(
+        Opacity(
           opacity: .6,
           child: Text(
-            'cool party crasher ',
+            book.volumeInfo.authors![0],
             style: Styles.textStyle18,
           ),
         ),
         const SizedBox(
           height: 20,
         ),
-        const BookRating(
-          rating:5, 
-          count:240,
+        BookRating(
+          rating: book.volumeInfo.averageRating ?? 0,
+          count: book.volumeInfo.ratingsCount ?? 0,
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(
