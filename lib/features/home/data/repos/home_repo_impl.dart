@@ -14,20 +14,21 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get(
           endPoints:
-              'volumes?Filtering=free-ebooks&sorting=newest&q=subject:programming');
+              'volumes?Filtering=free-ebooks&sorting=newest&q=subject:computer science');
       List<BooksModel> books = [];
       for (var item in data['items']) {
         books.add(BooksModel.fromJson(item));
-        return right(books);
       }
+      return right(books);
     } catch (e) {
-    
       if (e is DioError) {
         return left(ServerFailure.fromDioError(e));
       }
-      return left(ServerFailure(
-        e.toString(),
-      ));
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
     }
 
     throw UnimplementedError();
@@ -52,5 +53,30 @@ class HomeRepoImpl implements HomeRepo {
       ));
     }
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, List<BooksModel>>> fetchSimilarBooks(
+      {required String category}) async {
+    // TODO: implement fetchSimilarBooks
+    try {
+      var data = await apiService.get(
+          endPoints:
+              'volumes?Filtering=free-ebooks&sorting=relevance&sorting=newest&q=subject:computer science');
+      List<BooksModel> books = [];
+      for (var item in data['items']) {
+        books.add(BooksModel.fromJson(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
   }
 }

@@ -6,4 +6,5 @@ abstract class HomeRepo {
   // todo methods
   Future<Either<Failure, List<BooksModel>>> fetchNewestBooks();
   Future<Either<Failure, List<BooksModel>>> fetchFeaturedBooks();
+   Future<Either<Failure, List<BooksModel>>> fetchSimilarBooks( { required String  category});
 }
