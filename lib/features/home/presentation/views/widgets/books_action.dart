@@ -31,7 +31,7 @@ class BooksAction extends StatelessWidget {
               }
             },
             fontSize: 16,
-            text: 'preview',
+            text: getText(bookModel),
             bgcolor: Color.fromARGB(255, 240, 177, 177),
             textColor: Colors.white,
             borderRadius: BorderRadius.only(
@@ -42,5 +42,13 @@ class BooksAction extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String getText(BooksModel bookModel) {
+    if (!(bookModel.volumeInfo.previewLink == null)) {
+      return 'Not Available';
+    } else {
+      return 'Preview';
+    }
   }
 }
