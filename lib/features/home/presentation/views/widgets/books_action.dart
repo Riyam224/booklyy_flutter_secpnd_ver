@@ -1,3 +1,4 @@
+import 'package:booklyy/core/utils/function/launch_url.dart';
 import 'package:booklyy/core/widgets/vustom_button.dart';
 import 'package:booklyy/features/home/data/models/books_model/books_model.dart';
 import 'package:flutter/material.dart';
@@ -25,16 +26,13 @@ class BooksAction extends StatelessWidget {
         Expanded(
           child: CustomButton(
             onPressed: () async {
-              Uri uri = Uri.parse(bookModel.volumeInfo.previewLink!);
-              if (await canLaunchUrl(uri)) {
-                await launchUrl(uri);
-              }
+              launchCustomUrl(context, bookModel.volumeInfo.previewLink);
             },
             fontSize: 16,
             text: getText(bookModel),
-            bgcolor: Color.fromARGB(255, 240, 177, 177),
+            bgcolor: const  Color.fromARGB(255, 240, 177, 177),
             textColor: Colors.white,
-            borderRadius: BorderRadius.only(
+            borderRadius: const  BorderRadius.only(
               topRight: Radius.circular(12),
               bottomRight: Radius.circular(12),
             ),
