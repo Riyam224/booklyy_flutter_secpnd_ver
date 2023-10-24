@@ -1,16 +1,19 @@
 import 'package:booklyy/core/widgets/vustom_button.dart';
+import 'package:booklyy/features/home/data/models/books_model/books_model.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
+  const BooksAction({super.key, required this.bookModel});
+  final BooksModel bookModel;
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: CustomButton(
-            text: '99.99',
+            text: 'free',
             bgcolor: Colors.white,
             textColor: Colors.black,
             borderRadius: BorderRadius.only(
@@ -21,8 +24,14 @@ class BooksAction extends StatelessWidget {
         ),
         Expanded(
           child: CustomButton(
+            onPressed: () async {
+              Uri uri = Uri.parse(bookModel.volumeInfo.previewLink!);
+              if (await canLaunchUrl(uri)) {
+                await launchUrl(uri);
+              }
+            },
             fontSize: 16,
-            text: 'free book',
+            text: 'preview',
             bgcolor: Color.fromARGB(255, 240, 177, 177),
             textColor: Colors.white,
             borderRadius: BorderRadius.only(

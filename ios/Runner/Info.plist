@@ -44,6 +44,7 @@
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
+	
 	<true/>
 
 	<!--  -->
@@ -54,5 +55,10 @@
   <string>https</string>
 
 </array>
+<key>NSAppTransportSecurity</key>
+<dict> 
+	<key>NSAllowaArbitraryLoads</key>
+	<true/>
+	</dict>
 </dict>
 </plist>
